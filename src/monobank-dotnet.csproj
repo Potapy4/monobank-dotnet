@@ -4,10 +4,20 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>monobank.dotnet</RootNamespace>
     <Authors>Nikita Potapenko</Authors>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <RepositoryUrl>https://github.com/Potapy4/monobank-dotnet</RepositoryUrl>
+    <Description>Simple Monobank API wrapper for .NET</Description>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Text.Json" Version="4.6.0-preview6.19303.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
