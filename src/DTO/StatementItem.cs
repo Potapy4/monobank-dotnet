@@ -1,41 +1,41 @@
 ﻿using monobank.dotnet.Enums;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace monobank.dotnet.DTO
 {
     public sealed class StatementItem
     {
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; }
 
-        [JsonProperty("time")]
+        [JsonPropertyName("time")]
         public ulong Time { get; set; }
 
-        [JsonProperty("description")]
+        [JsonPropertyName("description")]
         public string Description { get; set; }
 
-        [JsonProperty("mcc")]
+        [JsonPropertyName("mcc")]
         public int MCC { get; set; }
 
-        [JsonProperty("hold")]
+        [JsonPropertyName("hold")]
         public bool IsHold { get; set; }
 
-        [JsonProperty("amount")]
+        [JsonPropertyName("amount")]
         public long Amount { get; set; }
 
-        [JsonProperty("operationAmount")]
+        [JsonPropertyName("operationAmount")]
         public long OperationAmount { get; set; }
 
-        [JsonProperty("currencyCode")]
+        [JsonPropertyName("currencyCode")]
         public CurrencyCode CurrencyCode { get; set; }
 
-        [JsonProperty("commissionRate")]
+        [JsonPropertyName("commissionRate")]
         public long ComissionRate { get; set; }
 
-        [JsonProperty("cashbackAmount")]
+        [JsonPropertyName("cashbackAmount")]
         public long CashbackAmount { get; set; }
 
-        [JsonProperty("balance")]
+        [JsonPropertyName("balance")]
         public long Balance { get; set; }
     }
 }

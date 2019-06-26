@@ -1,23 +1,23 @@
 ﻿using monobank.dotnet.Enums;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace monobank.dotnet.DTO
 {
     public sealed class Account
     {
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; }
 
-        [JsonProperty("balance")]
+        [JsonPropertyName("balance")]
         public long Balance { get; set; }
 
-        [JsonProperty("creditLimit")]
+        [JsonPropertyName("creditLimit")]
         public long CreditLimit { get; set; }
 
-        [JsonProperty("currencyCode")]
+        [JsonPropertyName("currencyCode")]
         public CurrencyCode CurrencyCode { get; set; }
 
-        [JsonProperty("cashbackType")]
+        [JsonPropertyName("cashbackType")]
         public string CashbackType { get; set; }
     }
 }

@@ -1,10 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace monobank.dotnet.DTO
 {
     public sealed class Error
     {
-        [JsonProperty("errorDescription")]
+        [JsonPropertyName("errorDescription")]
         public string Description { get; set; }
     }
 }

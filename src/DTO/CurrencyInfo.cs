@@ -1,26 +1,26 @@
 ﻿using monobank.dotnet.Enums;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace monobank.dotnet.DTO
 {
     public sealed class CurrencyInfo
     {
-        [JsonProperty("currencyCodeA")]
+        [JsonPropertyName("currencyCodeA")]
         public CurrencyCode CurrencyCodeA { get; set; }
 
-        [JsonProperty("currencyCodeB")]
+        [JsonPropertyName("currencyCodeB")]
         public CurrencyCode CurrencyCodeB { get; set; }
 
-        [JsonProperty("date")]
+        [JsonPropertyName("date")]
         public ulong Date { get; set; }
 
-        [JsonProperty("rateSell")]
+        [JsonPropertyName("rateSell")]
         public float RateSell { get; set; }
 
-        [JsonProperty("rateBuy")]
+        [JsonPropertyName("rateBuy")]
         public float RateBuy { get; set; }
 
-        [JsonProperty("rateCross")]
+        [JsonPropertyName("rateCross")]
         public float RateCross { get; set; }
     }
 }

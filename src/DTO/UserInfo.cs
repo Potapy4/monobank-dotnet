@@ -1,14 +1,14 @@
-﻿using Newtonsoft.Json;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace monobank.dotnet.DTO
 {
     public sealed class UserInfo
     {
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; }
 
-        [JsonProperty("accounts")]
+        [JsonPropertyName("accounts")]
         public ICollection<Account> Accounts { get; set; }
     }
 }

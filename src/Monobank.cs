@@ -1,7 +1,7 @@
 ﻿using monobank.dotnet.DTO;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace monobank.dotnet
@@ -24,7 +24,7 @@ namespace monobank.dotnet
         public async Task<ICollection<CurrencyInfo>> GetCurrencyInfoAsync()
         {
             var response = await MonobankHTTP.GetRequest($"{API_URL}/bank/currency");
-            return JsonConvert.DeserializeObject<ICollection<CurrencyInfo>>(response);
+            return JsonSerializer.Parse<ICollection<CurrencyInfo>>(response);
         }
 
         public async Task<UserInfo> GetClientInfoAsync()
@@ -34,7 +34,7 @@ namespace monobank.dotnet
                 { "X-Token", _apiKey }
             });
 
-            return JsonConvert.DeserializeObject<UserInfo>(response);
+            return JsonSerializer.Parse<UserInfo>(response);
         }
 
         public async Task<ICollection<StatementItem>> GetStatementsAsync(string from, string to, string account = "0")
@@ -47,7 +47,7 @@ namespace monobank.dotnet
                 { "to", to }
             });
 
-            return JsonConvert.DeserializeObject<ICollection<StatementItem>>(response);
+            return JsonSerializer.Parse<ICollection<StatementItem>>(response);
         }
     }
 }
