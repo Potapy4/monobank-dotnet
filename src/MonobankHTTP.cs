@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using monobank.dotnet.DTO;
+using System;
+using System.Collections.Generic;
 using System.Net.Http;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace monobank.dotnet
@@ -20,8 +23,15 @@ namespace monobank.dotnet
 
                 using (var response = await httpClient.GetAsync(url))
                 {
-                    response.EnsureSuccessStatusCode();
-                    return await response.Content.ReadAsStringAsync();
+                    var result = await response.Content.ReadAsStringAsync();
+
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        var error = JsonSerializer.Parse<Error>(result);
+                        throw new Exception(error.Description);
+                    }
+
+                    return result;
                 }
             }
         }
