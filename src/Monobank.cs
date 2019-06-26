@@ -37,17 +37,22 @@ namespace monobank.dotnet
             return JsonSerializer.Parse<UserInfo>(response);
         }
 
-        public async Task<ICollection<StatementItem>> GetStatementsAsync(string from, string to, string account = "0")
+        public async Task<ICollection<StatementItem>> GetStatementsAsync(DateTime from, DateTime to, string account = "0")
         {
             var response = await MonobankHTTP.GetRequest($"{API_URL}/personal/client-info", new Dictionary<string, string>()
             {
                 { "X-Token", _apiKey },
                 { "account", account },
-                { "from", from },
-                { "to", to }
+                { "from", ConvertToUnixTime(from).ToString() },
+                { "to", ConvertToUnixTime(to).ToString() }
             });
 
             return JsonSerializer.Parse<ICollection<StatementItem>>(response);
+        }
+
+        private static int ConvertToUnixTime(DateTime date)
+        {
+            return (int)(date.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
         }
     }
 }
