@@ -1,7 +1,7 @@
-﻿using monobank.dotnet.Helpers;
+﻿using Monobank.API.Helpers;
 using System.Net.Http;
 
-namespace monobank.dotnet.Services.Abstract
+namespace Monobank.API.Services.Abstract
 {
     public abstract class BaseService
     {

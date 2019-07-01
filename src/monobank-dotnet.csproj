@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>monobank.dotnet</RootNamespace>
+    <RootNamespace>Monobank.API</RootNamespace>
     <Authors>Nikita Potapenko</Authors>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <RepositoryUrl>https://github.com/Potapy4/monobank-dotnet</RepositoryUrl>

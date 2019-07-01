@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace monobank.dotnet.Extensions
+namespace Monobank.API.Extensions
 {
     internal static class DateTimeExtension
     {

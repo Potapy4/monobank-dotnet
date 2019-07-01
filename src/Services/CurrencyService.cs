@@ -1,11 +1,11 @@
-﻿using monobank.dotnet.DTO;
-using monobank.dotnet.Services.Abstract;
+﻿using Monobank.API.DTO;
+using Monobank.API.Services.Abstract;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace monobank.dotnet.Services
+namespace Monobank.API.Services
 {
     public sealed class CurrencyService : BaseService
     {

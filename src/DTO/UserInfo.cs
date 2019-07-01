@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace monobank.dotnet.DTO
+namespace Monobank.API.DTO
 {
     public sealed class UserInfo
     {

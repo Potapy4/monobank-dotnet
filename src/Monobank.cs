@@ -1,8 +1,8 @@
-﻿using monobank.dotnet.Services;
+﻿using Monobank.API.Services;
 using System;
 using System.Net.Http;
 
-namespace monobank.dotnet
+namespace Monobank.API
 {
     public sealed class Monobank
     {

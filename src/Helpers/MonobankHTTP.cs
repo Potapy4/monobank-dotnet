@@ -1,11 +1,11 @@
-﻿using monobank.dotnet.DTO;
+﻿using Monobank.API.DTO;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace monobank.dotnet.Helpers
+namespace Monobank.API.Helpers
 {
     internal class MonobankHTTP
     {

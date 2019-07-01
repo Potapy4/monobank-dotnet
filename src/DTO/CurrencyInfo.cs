@@ -1,7 +1,7 @@
-﻿using monobank.dotnet.Enums;
+﻿using Monobank.API.Enums;
 using System.Text.Json.Serialization;
 
-namespace monobank.dotnet.DTO
+namespace Monobank.API.DTO
 {
     public sealed class CurrencyInfo
     {

@@ -1,4 +1,4 @@
-﻿namespace monobank.dotnet.Enums
+﻿namespace Monobank.API.Enums
 {
     public enum CurrencyCode
     {
