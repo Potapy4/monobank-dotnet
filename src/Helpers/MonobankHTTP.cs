@@ -20,16 +20,17 @@ namespace monobank.dotnet.Helpers
 
         internal async Task<string> GetRequest(string url, Dictionary<string, string> headers = null)
         {
-            Client.DefaultRequestHeaders.Clear();
+            var request = new HttpRequestMessage(HttpMethod.Get, url);
+
             if (headers?.Count > 0)
             {
                 foreach (var header in headers)
                 {
-                    Client.DefaultRequestHeaders.Add(header.Key, header.Value);
+                    request.Headers.Add(header.Key, header.Value);
                 }
             }
 
-            using (var response = await Client.GetAsync(url))
+            using (var response = await Client.SendAsync(request))
             {
                 var result = await response.Content.ReadAsStringAsync();
 
