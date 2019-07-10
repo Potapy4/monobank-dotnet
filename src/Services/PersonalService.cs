@@ -38,5 +38,15 @@ namespace Monobank.API.Services
 
             return JsonSerializer.Parse<ICollection<StatementItem>>(response);
         }
+
+        public async Task SetWebHook(string url)
+        {
+            var payload = JsonSerializer.ToString(new { webHookUrl = url });
+
+            await _monobankHTTP.PostRequest("/personal/webhook", payload, new Dictionary<string, string>()
+            {
+                { "X-Token", _apiKey }
+            });
+        }
     }
 }

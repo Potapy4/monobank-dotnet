@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
@@ -18,9 +19,9 @@ namespace Monobank.API.Helpers
             Client.BaseAddress = new Uri(API_URL);
         }
 
-        internal async Task<string> GetRequest(string url, Dictionary<string, string> headers = null)
+        private HttpRequestMessage InitRequestMessage(HttpMethod method, string url, Dictionary<string, string> headers = null)
         {
-            var request = new HttpRequestMessage(HttpMethod.Get, url);
+            var request = new HttpRequestMessage(method, url);
 
             if (headers?.Count > 0)
             {
@@ -30,6 +31,11 @@ namespace Monobank.API.Helpers
                 }
             }
 
+            return request;
+        }
+
+        private async Task<string> MakeRequest(HttpRequestMessage request)
+        {
             using (var response = await Client.SendAsync(request))
             {
                 var result = await response.Content.ReadAsStringAsync();
@@ -42,6 +48,20 @@ namespace Monobank.API.Helpers
 
                 return result;
             }
+        }
+
+        internal async Task<string> GetRequest(string url, Dictionary<string, string> headers = null)
+        {
+            var request = InitRequestMessage(HttpMethod.Get, url, headers);
+            return await MakeRequest(request);
+        }
+
+        internal async Task<string> PostRequest(string url, string payload, Dictionary<string, string> headers = null)
+        {
+            var request = InitRequestMessage(HttpMethod.Post, url, headers);
+            request.Content = new StringContent(payload, Encoding.UTF8, "application/json");
+
+            return await MakeRequest(request);
         }
     }
 }
