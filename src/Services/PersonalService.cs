@@ -4,7 +4,7 @@ using Monobank.API.Services.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
-using System.Text.Json.Serialization;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Monobank.API.Services
@@ -25,7 +25,7 @@ namespace Monobank.API.Services
                 { "X-Token", _apiKey }
             });
 
-            return JsonSerializer.Parse<UserInfo>(response);
+            return JsonSerializer.Deserialize<UserInfo>(response);
         }
 
         public async Task<ICollection<StatementItem>> GetStatementsAsync(DateTime from, DateTime? to = null, string account = "0")
@@ -36,12 +36,12 @@ namespace Monobank.API.Services
                 { "X-Token", _apiKey }
             });
 
-            return JsonSerializer.Parse<ICollection<StatementItem>>(response);
+            return JsonSerializer.Deserialize<ICollection<StatementItem>>(response);
         }
 
         public async Task SetWebHook(string url)
         {
-            var payload = JsonSerializer.ToString(new { webHookUrl = url });
+            var payload = JsonSerializer.Serialize(new { webHookUrl = url });
 
             await _monobankHTTP.PostRequest("/personal/webhook", payload, new Dictionary<string, string>()
             {

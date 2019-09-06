@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
-using System.Text.Json.Serialization;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Monobank.API.Helpers
@@ -42,7 +42,7 @@ namespace Monobank.API.Helpers
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    var error = JsonSerializer.Parse<Error>(result);
+                    var error = JsonSerializer.Deserialize<Error>(result);
                     throw new Exception(error.Description);
                 }
 

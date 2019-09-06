@@ -2,7 +2,7 @@
 using Monobank.API.Services.Abstract;
 using System.Collections.Generic;
 using System.Net.Http;
-using System.Text.Json.Serialization;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Monobank.API.Services
@@ -14,7 +14,7 @@ namespace Monobank.API.Services
         public async Task<ICollection<CurrencyInfo>> GetCurrencyInfoAsync()
         {
             var response = await _monobankHTTP.GetRequest("/bank/currency");
-            return JsonSerializer.Parse<ICollection<CurrencyInfo>>(response);
+            return JsonSerializer.Deserialize<ICollection<CurrencyInfo>>(response);
         }
     }
 }
