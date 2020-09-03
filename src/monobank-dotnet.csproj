@@ -3,11 +3,12 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <RootNamespace>Monobank.API</RootNamespace>
-    <Authors>Nikita Potapenko</Authors>
+    <Authors>Mykyta Potapenko</Authors>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <RepositoryUrl>https://github.com/Potapy4/monobank-dotnet</RepositoryUrl>
     <Description>Simple Monobank API wrapper for .NET</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Company>Mykyta Potapenko</Company>
   </PropertyGroup>
 
   <ItemGroup>
